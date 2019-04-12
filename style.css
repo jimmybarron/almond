@@ -1,7 +1,9 @@
 .block {
+    height: 100vh;
     display: flex;
     position: relative;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .transBg {
@@ -9,7 +11,7 @@
     position: absolute;
     pointer-events: none;
     width: 450%;
-    height: 120%;
+    height: 460%;
     background-color: #CB9700;
     opacity: 0;
     transform: skew(-59deg);
@@ -18,8 +20,8 @@
 
 .crossBoards {
     position: absolute;
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
     pointer-events: none;
     width: 100vw;
     height: 100vh;
@@ -44,12 +46,14 @@
     pointer-events: none;
 }
 
+.heroContainer {
+}
+
 #heroImage {
     position: absolute;
-    height: 123vh;
-    width: auto;
-    margin-left: -45%;
-    margin-top: -30px;
+    height: 120vh;
+    width: 100%;
+    object-fit: cover;
 }
 
 .titleText {

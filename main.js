@@ -3,6 +3,12 @@ const crossBoards = document.querySelector('.crossBoards')
 const cta = document.querySelector('.cta')
 const heroImage = document.querySelector('#heroImage')
 
+crossBoards.style.opacity = 0;
+
+let carouselIndex = 1
+const carouselImage1 = './img/secretMenu.jpg'
+const carouselImage2 = './img/flags.jpg'
+
 const transAnim = new TimelineMax ({
     paused: true,
 
@@ -18,7 +24,7 @@ transAnim
             visibility: 'visible',
             height: '330%',
             x: 1000,
-            transformOrigin: '50% 100%',
+            transformOrigin: '50% 30%',
             ease: Power2.easeInOut,
         })
 
@@ -29,6 +35,8 @@ transAnim
             opacity: 1,
             ease: Power2.easeInOut,
         })
+
+        //turn on svg and move
 
         .to(crossBoards, 0, {
             visibility: 'visible',
@@ -47,6 +55,8 @@ transAnim
             scale: 1,
             ease: Power2.easeIn,
         })
+
+        //move colored background out
         
         .to(transBg, .3, {
             x: -3600,
@@ -66,13 +76,17 @@ cta.addEventListener('click', () => {
 
     console.log(heroImage.src)
     
-    if (heroImage.src = './img/secretMenu.jpg') {
+    if (carouselIndex === 1) {
+        console.log('secret')
         setTimeout(function() {
-            heroImage.src = './img/flags.jpg'
+            heroImage.src = carouselImage2
+            carouselIndex = 2
         }, 500)
-    } else if (heroImage.src = './img/flags.jpg') {
+    } else if (carouselIndex === 2) {
+        console.log('flags')
         setTimeout(function() {
-            heroImage.src = './img/secretMenu.jpg'
+            heroImage.src = carouselImage1
+            carouselIndex = 1
         }, 500)
     }
 })
